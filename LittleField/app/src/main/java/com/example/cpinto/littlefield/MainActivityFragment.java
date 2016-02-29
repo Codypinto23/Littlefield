@@ -256,7 +256,7 @@ public class MainActivityFragment extends Fragment {
         timePerLotStation4=setupTimeStation4+runTimeStation4*batchSize;
         textViewStation4TimePerLot.setText((String.valueOf(timePerLotStation4)));
 
-        totalLotTime=timePerLotStation1+timePerLotStation2+timePerLotStation3+timePerLotStation4;
+        totalLotTime=timePerLotStation1+.5*timePerLotStation2+timePerLotStation3+timePerLotStation4*.5;
         textViewTotalLotTime.setText(String.valueOf(totalLotTime)+" hours");
     }
 
@@ -301,7 +301,7 @@ public class MainActivityFragment extends Fragment {
                 demandArrivalPerDay[i] = rn.nextInt((max - min) + 1) + min;
             }
 
-            minLeadTime = 24 / (timePerLotStation1 + timePerLotStation2 + timePerLotStation3 + timePerLotStation4);
+            minLeadTime = 24 / (timePerLotStation1 + .5* timePerLotStation2 + timePerLotStation3 + .5*timePerLotStation4);
             maxLeadTime = minLeadTime + .2;
             //Average Lead time for each day
             double[] leadTimePerDay = new double[daysToSimulate];
